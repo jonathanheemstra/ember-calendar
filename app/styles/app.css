@@ -3,5 +3,10 @@
 @tailwind utilities;
 
 body {
-  @apply font-sans box-border;
+  @apply font-sans box-border border-t-4 border-brand;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 1440px;
 }

@@ -1,0 +1,39 @@
+<div class="grid grid-cols-7" ...attributes>
+  {{#each this.bookings as |booking|}}
+    <div class="border-2 border-gray-300 border-solid">
+      <div class="bg-gray-100 p-4">
+        {{booking.date}}
+      </div>
+      <div class="p-4">
+        {{#if booking.hasBookings}}
+          <button
+            class="bg-brand font-bold py-2 px-4 rounded"
+            {{on "click" (fn this.showBookings booking)}}
+          >
+            Show Details
+          </button>
+        {{else}}
+          <div>
+            No Bookings
+          </div>
+        {{/if}}
+      </div>
+    </div>
+  {{/each}}
+</div>
+
+<div class="grid gap-4">
+  {{#each this.selectedBooking as |booking|}}
+    <div>
+      <div>
+        Start Time: {{booking.startTime}}
+      </div>
+      <div>
+        End Time: {{booking.endTime}}
+      </div>
+      <div>
+        Total Guests: {{booking.bookedCount}}
+      </div>
+    </div>
+  {{/each}}
+</div>

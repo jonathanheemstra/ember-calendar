@@ -1,5 +1,7 @@
 import Model, { attr } from '@ember-data/model';
 
+import { dasherize } from '@ember/string';
+
 export default class TimeslotModel extends Model {
   @attr('string') date;
   @attr('string') startTime;
@@ -8,4 +10,8 @@ export default class TimeslotModel extends Model {
   @attr('number') availableSpots;
   @attr('number') bookedCount;
   @attr('number') maxGuests;
+
+  get dasherizedName() {
+    return dasherize(this.activityName).toLowerCase();
+  }
 }
